@@ -1,15 +1,21 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 
+export enum AuthMethod {
+  google = 'google',
+}
 @Schema({ collection: 'Player' })
 export class Player {
   @Prop()
-  name: string;
+  email: string;
 
   @Prop()
-  uuid: string;
+  name: string;
 
   @Prop({ required: false })
   avatarUrl?: string;
+
+  @Prop()
+  authMethod: AuthMethod;
 
   @Prop()
   bankAccount: number;

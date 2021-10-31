@@ -9,6 +9,10 @@ export class PlayerRepositoryAdapter implements PlayerRepositoryPort {
     @InjectModel(Player.name)
     private readonly playerModel: Model<Player>,
   ) {}
+
+  async findByEmail(email: string) {
+    return this.playerModel.findOne({ email });
+  }
 }
 
 export const PlayerRepositoryProvider: Provider<PlayerRepositoryPort> = {
