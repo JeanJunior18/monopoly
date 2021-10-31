@@ -1,8 +1,8 @@
-import { Prop, Schema } from '@nestjs/mongoose';
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Player } from 'src/modules/player/core/domain/player.entity';
 
 @Schema({ collection: 'GameMatch' })
-export class GameMatchEntity {
+export class GameMatch {
   @Prop()
   name: string;
 
@@ -21,3 +21,5 @@ export class GameMatchEntity {
   @Prop()
   startValue: number;
 }
+
+export const GameMatchSchema = SchemaFactory.createForClass(GameMatch);
